@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { fetchPopularRepos } from "../utils/api";
 import Card from "./Card";
 import Tooltip from "./Tooltip";
+import Loading from "./Loading";
 import {
   FaUser,
   FaStar,
@@ -137,7 +138,7 @@ export default class Popular extends React.Component {
           selected={selectedLanguage}
           onUpdateLanguage={this.updateLanguage}
         />
-        {this.isLoading() && <p>LOADING</p>}
+        {this.isLoading() && <Loading />}
         {error && <p className="center-text error">{error}</p>}
         {repos[selectedLanguage] && (
           <RepoGrid repos={repos[selectedLanguage]} />
